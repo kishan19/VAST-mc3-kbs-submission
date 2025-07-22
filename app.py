@@ -63,7 +63,11 @@ def setup_chatbot_logic():
     
     # Load environment variables
     #load_dotenv(dotenv_path="secret/.env")
-    api_key = os.getenv("OPENAI_API_KEY")
+    try:
+        load_dotenv(dotenv_path="secret/.env")
+        api_key = os.getenv("OPENAI_API_KEY")
+    except Exception as ex:
+        api_key = os.getenv("OPENAI_API_KEY")
 
     client = OpenAI(api_key=api_key)
     
@@ -75,8 +79,18 @@ def setup_chatbot_logic():
     chatbot_df.drop(columns=['content', 'mins_since_start_of_day'], inplace=True)
     
     # Create SQL database
-    engine = create_engine("sqlite:///mc3.db")
+    # engine = create_engine("sqlite:///mc3.db")
+    
+    # chatbot_df.to_sql("mc3data", engine, index=False, if_exists='replace')
+
+
+    # Replace this with your actual URI
+    POSTGRES_URI = "postgresql://mc3user:supersecure123@db.example.com:5432/mc3database"
+    
+    engine = create_engine(POSTGRES_URI)
+
     chatbot_df.to_sql("mc3data", engine, index=False, if_exists='replace')
+
     
     # Setup database toolkit
     db = SQLDatabase(engine=engine)
