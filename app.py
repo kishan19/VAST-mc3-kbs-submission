@@ -2278,15 +2278,15 @@ app.layout = dbc.Container([
     className="mb-3",
     ),
     # Add hidden llm-summary-checkbox so Dash always registers it
-    html.Div([
-        dcc.Checklist(
-            id="llm-summary-checkbox",
-            options=[{"label": "Generate LLM Summary", "value": "generate"}],
-            value=[],
-            style={"display": "none"}
-        )
-    ], style={"display": "none"}),
-    # Add hidden nadia-packet-summary so Dash always registers it
+    # html.Div([
+    #     dcc.Checklist(
+    #         id="llm-summary-checkbox",
+    #         options=[{"label": "Generate LLM Summary", "value": "generate"}],
+    #         value=[],
+    #         style={"display": "none"}
+    #     )
+    # ], style={"display": "none"}),
+    # # Add hidden nadia-packet-summary so Dash always registers it
     html.Div(id="nadia-packet-summary", style={"display": "none"})
 ], fluid=True)
 
