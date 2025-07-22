@@ -1062,6 +1062,8 @@ repeating_motifs_all, motif_counts_all = extract_repeating_motifs_all_lengths(co
 
 app = dash.Dash(__name__, external_stylesheets=[dbc.themes.BOOTSTRAP], suppress_callback_exceptions=True)
 app.title = "DOCK-G: Decoding Oceanus's Corruption Knowledge-Graphs"
+server = app.server
+
 
 # Simple Chatbot UI
 chatbot_card = dbc.Card([
