@@ -79,16 +79,16 @@ def setup_chatbot_logic():
     chatbot_df.drop(columns=['content', 'mins_since_start_of_day'], inplace=True)
     
     # Create SQL database
-    # engine = create_engine("sqlite:///mc3.db")
-    # chatbot_df.to_sql("mc3data", engine, index=False, if_exists='replace')
+    engine = create_engine("sqlite:///mc3.db")
+    chatbot_df.to_sql("mc3data", engine, index=False, if_exists='replace')
 
     # Use PostgreSQL connection
     #POSTGRES_URI = "postgresql://kbs:vastpass@localhost:5432/vastdb"
     #POSTGRES_URI="postgres://u56noq9kqqnjic:pbdc91b59d67bb7888a38c1600c6f290617a4432edbe201fe9c4b57feec1f102a@c18qegamsgjut6.cluster-czrs8kj4isg7.us-east-1.rds.amazonaws.com:5432/dc59vg6kbv99t2"
 
-    POSTGRES_URI="postgresql://u56noq9kqqnjic:pbdc91b59d67bb7888a38c1600c6f290617a4432edbe201fe9c4b57feec1f102a@c18qegamsgjut6.cluster-czrs8kj4isg7.us-east-1.rds.amazonaws.com:5432/dc59vg6kbv99t2?sslmode=require"
+    # POSTGRES_URI="postgresql://u56noq9kqqnjic:pbdc91b59d67bb7888a38c1600c6f290617a4432edbe201fe9c4b57feec1f102a@c18qegamsgjut6.cluster-czrs8kj4isg7.us-east-1.rds.amazonaws.com:5432/dc59vg6kbv99t2?sslmode=require"
 
-    engine = create_engine(POSTGRES_URI)
+    # engine = create_engine(POSTGRES_URI)
 
     chatbot_df.to_sql("mc3data", engine, index=False, if_exists='replace')
     
@@ -2278,15 +2278,15 @@ app.layout = dbc.Container([
     className="mb-3",
     ),
     # Add hidden llm-summary-checkbox so Dash always registers it
-    # html.Div([
-    #     dcc.Checklist(
-    #         id="llm-summary-checkbox",
-    #         options=[{"label": "Generate LLM Summary", "value": "generate"}],
-    #         value=[],
-    #         style={"display": "none"}
-    #     )
-    # ], style={"display": "none"}),
-    # # Add hidden nadia-packet-summary so Dash always registers it
+    html.Div([
+        dcc.Checklist(
+            id="llm-summary-checkbox",
+            options=[{"label": "Generate LLM Summary", "value": "generate"}],
+            value=[],
+            style={"display": "none"}
+        )
+    ], style={"display": "none"}),
+    # Add hidden nadia-packet-summary so Dash always registers it
     # html.Div(id="nadia-packet-summary", style={"display": "none"})
 ], fluid=True)
 
