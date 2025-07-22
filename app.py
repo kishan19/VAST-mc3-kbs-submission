@@ -62,8 +62,9 @@ def setup_chatbot_logic():
     from langgraph.checkpoint.memory import MemorySaver
     
     # Load environment variables
-    load_dotenv(dotenv_path="secret/.env")
+    #load_dotenv(dotenv_path="secret/.env")
     api_key = os.getenv("OPENAI_API_KEY")
+
     client = OpenAI(api_key=api_key)
     
     # Initialize LLM
