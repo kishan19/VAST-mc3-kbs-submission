@@ -82,13 +82,7 @@ def setup_chatbot_logic():
     engine = create_engine("sqlite:///mc3.db")
     chatbot_df.to_sql("mc3data", engine, index=False, if_exists='replace')
 
-    # Use PostgreSQL connection
-    #POSTGRES_URI = "postgresql://kbs:vastpass@localhost:5432/vastdb"
-    #POSTGRES_URI="postgres://u56noq9kqqnjic:pbdc91b59d67bb7888a38c1600c6f290617a4432edbe201fe9c4b57feec1f102a@c18qegamsgjut6.cluster-czrs8kj4isg7.us-east-1.rds.amazonaws.com:5432/dc59vg6kbv99t2"
 
-    # POSTGRES_URI="postgresql://u56noq9kqqnjic:pbdc91b59d67bb7888a38c1600c6f290617a4432edbe201fe9c4b57feec1f102a@c18qegamsgjut6.cluster-czrs8kj4isg7.us-east-1.rds.amazonaws.com:5432/dc59vg6kbv99t2?sslmode=require"
-
-    # engine = create_engine(POSTGRES_URI)
 
     chatbot_df.to_sql("mc3data", engine, index=False, if_exists='replace')
     
