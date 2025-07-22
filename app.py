@@ -80,17 +80,15 @@ def setup_chatbot_logic():
     
     # Create SQL database
     # engine = create_engine("sqlite:///mc3.db")
-    
     # chatbot_df.to_sql("mc3data", engine, index=False, if_exists='replace')
 
-
-    # Replace this with your actual URI
-    POSTGRES_URI = "postgresql://mc3user:supersecure123@db.example.com:5432/mc3database"
-    
+    # Use PostgreSQL connection
+    POSTGRES_URI = "postgresql://kbs:vastpass@localhost:5432/vastdb"
     engine = create_engine(POSTGRES_URI)
 
-    chatbot_df.to_sql("mc3data", engine, index=False, if_exists='replace')
+    print(engine)
 
+    chatbot_df.to_sql("mc3data", engine, index=False, if_exists='replace')
     
     # Setup database toolkit
     db = SQLDatabase(engine=engine)
