@@ -1,0 +1,30 @@
+# Core Dash and Web Framework
+dash
+dash-bootstrap-components
+dash-table
+
+# Data Processing and Analysis
+pandas
+numpy
+plotly
+
+# Network Analysis and Visualization
+networkx
+pyvis
+
+# Database and SQL
+sqlalchemy
+
+
+# LangChain and AI/ML
+langchain
+langchain-openai
+langchain-community
+langgraph
+openai
+
+# Environment and Configuration
+python-dotenv
+
+# Additional Utilities
+uuid
