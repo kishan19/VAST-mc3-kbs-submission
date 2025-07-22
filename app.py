@@ -2287,7 +2287,7 @@ app.layout = dbc.Container([
     #     )
     # ], style={"display": "none"}),
     # # Add hidden nadia-packet-summary so Dash always registers it
-    html.Div(id="nadia-packet-summary", style={"display": "none"})
+    # html.Div(id="nadia-packet-summary", style={"display": "none"})
 ], fluid=True)
 
 # Collapsible explainer callback
