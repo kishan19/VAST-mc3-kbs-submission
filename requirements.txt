@@ -45,7 +45,7 @@ langgraph-prebuilt==0.5.2
 langgraph-sdk==0.1.74
 langsmith==0.4.8
 MarkupSafe==3.0.2
-marshmallow==3.26.1
+marshmallow==3.26.2
 matplotlib-inline==0.1.7
 multidict==6.6.3
 mypy_extensions==1.1.0
